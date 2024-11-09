@@ -1,1 +1,9 @@
+#!/usr/bin/env bash
+# commands to install nginx on web server yep
 
+apt-get update -y
+apt-get install -y nginx
+sudo ufw allow'80'
+sh -c 'echo "Holberton School" > /var/www/html/index.html'
+sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://youtu.be/dQw4w9WgXcQ?si=vkl0fr-NMFTC_wtj permanent;' /etc/nginx/sites-available/default
+service nginx restart
