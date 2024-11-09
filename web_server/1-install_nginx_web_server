@@ -1,18 +1,8 @@
 #!/usr/bin/env bash
 # commands to install nginx on web server yep
 
-apt-get update
+apt-get update -y
 apt-get install -y nginx
-
-mkdir /etc/nginx/html
-touch /etc/nginx/html/index.html
-echo "Holberton School" >/etc/nginx/html/index.html
-printf %s "server {
-     listen      80 default_server;
-     listen      [::]:80 default_server;
-     root        /etc/nginx/html;
-     index       index.html index.htm;
-}
-" >/etc/nginx/sites-available/default
-
+sudo ufw allow'80'
+sh -c 'echo "Holberton School" > /var/www/html/index.html'
 service nginx restart
